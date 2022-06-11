@@ -19,7 +19,7 @@ app.get("/api/select/:x", (req, res) => {
   const recherche = "select * from users where cin = ? ";
   db.query(recherche, [req.params.x], (err, result) => {
     console.log(err);
-    res.json(result);
+    res.send(result);
   });
 });
 app.post("/api/insert", (req, res) => {

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { BrowserRouter as Router } from "react-router-dom";
 function Hub() {
   return (
     <div style={{ textAlign: "center" }}>

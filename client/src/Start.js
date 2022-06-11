@@ -1,6 +1,6 @@
 import React from "react";
 import Connection from "./Connection";
-import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import Inscription from "./Inscription";
 import Hub from "./Hub";

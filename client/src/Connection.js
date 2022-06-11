@@ -1,7 +1,6 @@
 import Hub from "./Hub";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import QrReader from "react-qr-reader";
-import Axios from "axios";
 
 function Connection() {
   const [Name, setName] = useState("");
@@ -14,15 +13,24 @@ function Connection() {
   };
   const handleScan = (result) => {
     setScanqrcode(result);
-    console.log(scanqrcode);
-    console.log(result);
-    fetch("http://localhost:1500/api/select/" + result)
-      .then((response) => {
-        console.log(response.json());
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    Cherche(result);
+    if (result != null) {
+      alert("Vous pouver passer");
+    }
+  };
+  const Cherche = async (result) => {
+    const res = await fetch("http://localhost:1500/api/select/" + result);
+    const json = await res.json();
+    let values = Object.values(json[0]);
+    for (let i in values) {
+      if ((i = 1)) {
+        setName(values[i]);
+      }
+
+      if ((i = 2)) {
+        setLastName(values[i]);
+      }
+    }
   };
   const onScanFun = () => {
     QrRef.current.openImageDialog();

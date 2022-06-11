@@ -82,7 +82,7 @@ function Inscription() {
           </button>
         </pre>
         <a href={imgurl} download>
-          <img src={imgurl} name="code" id="code" />
+          <img src={imgurl} name="code" id="code" alt="" />
         </a>
       </fieldset>
     </div>
