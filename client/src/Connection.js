@@ -3,33 +3,36 @@ import { useState, useRef } from "react";
 import QrReader from "react-qr-reader";
 
 function Connection() {
+  const [Cin, setCin] = useState("");
   const [Name, setName] = useState("");
   const [LastName, setLastName] = useState("");
   const QrRef = useRef("null");
-  const [scanqrcode, setScanqrcode] = useState("");
 
   const handleError = (error) => {
     console.error(error);
   };
   const handleScan = (result) => {
-    setScanqrcode(result);
     Cherche(result);
-    if (result != null) {
-      alert("Vous pouver passer");
-    }
   };
   const Cherche = async (result) => {
     const res = await fetch("http://localhost:1500/api/select/" + result);
     const json = await res.json();
     let values = Object.values(json[0]);
-    for (let i in values) {
-      if ((i = 1)) {
-        setName(values[i]);
-      }
+    if (values[0]) {
+      setCin(values[0]);
 
-      if ((i = 2)) {
-        setLastName(values[i]);
+      for (let i in values) {
+        if ((i = 1)) {
+          setName(values[i]);
+        }
+
+        if ((i = 2)) {
+          setLastName(values[i]);
+        }
       }
+      alert("vous pouvez passer");
+    } else {
+      alert("Vous ne passer pas");
     }
   };
   const onScanFun = () => {
@@ -50,7 +53,7 @@ function Connection() {
             legacyMode
           />
 
-          <p> CIN : {scanqrcode}</p>
+          <p> CIN : {Cin}</p>
           <p> Nom: {Name} </p>
           <p> Prenom: {LastName}</p>
         </div>
