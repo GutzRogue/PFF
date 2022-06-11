@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "mysql": "^2.18.1",
+    "node-oracledb": "^1.0.2",
+    "nodemon": "^2.0.16",
+    "qrcode": "^1.5.0",
+    "react-qr-reader": "^2.2.1",
+    "react-router-dom": "^6.3.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
+  }
+}
